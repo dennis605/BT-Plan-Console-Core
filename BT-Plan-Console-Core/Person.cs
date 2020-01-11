@@ -24,7 +24,7 @@ namespace ConsoleApp_core
 
 
         // Erstelle Mitarbeiter.
-        public int SaveMitarbeitertoDB (string vname, string nname)
+        public static void SaveMitarbeitertoDB (string vname, string nname)
         {
             using (Context db = new Context())
             {
@@ -40,7 +40,7 @@ namespace ConsoleApp_core
         /// Fragt Input für neuen Mitarbeiter ab und erstellt diesen über SaveMitarbveitertoDB.
         /// </summary>
         
-        public void CreateMA()
+        public static void CreateMA()
         {
             Console.WriteLine("Vorname:");
             string vname = Console.ReadLine();
