@@ -26,7 +26,11 @@ namespace ConsoleApp_core
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
 
-            base.OnModelCreating(modelBuilder);
+            //base.OnModelCreating(modelBuilder);
+
+            modelBuilder.Entity<Person>()
+                .HasIndex(p => new { p.Vorname, p.Nachname, p.Rolle });
+
             modelBuilder.Entity<PersonenEvent>()
                 .HasKey(t => new { t.PersonId, t.EventId });
 

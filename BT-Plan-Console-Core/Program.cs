@@ -12,6 +12,8 @@ namespace BT_Plan_Console_Core
         static void Main(string[] args)
         {
             Person.CreateMA();
+            Console.WriteLine("ergweehr6j");
+            Console.ReadKey();
 
             //using (Context db = new Context())
             //{

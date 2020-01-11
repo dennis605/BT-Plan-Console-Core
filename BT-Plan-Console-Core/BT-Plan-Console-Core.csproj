@@ -158,6 +158,10 @@
     <Compile Include="Migrations\20191228131631_initial-neu-2.designer.cs">
       <DependentUpon>20191228131631_initial-neu-2.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\20200111181231_test123.cs" />
+    <Compile Include="Migrations\20200111181231_test123.designer.cs">
+      <DependentUpon>20200111181231_test123.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\ContextModelSnapshot.cs" />
     <Compile Include="Person.cs" />
     <Compile Include="PersonenEvent.cs" />

@@ -65,6 +65,10 @@ namespace ConsoleApp_core
         // hier wird zu speichernde Person geprüft, ob schon in DB existiert -> gibt true zurück, wenn speichern möglich ist
         public static bool CheckDBforDB(string vname, string nnachname, string rolle)
         {
+
+           
+            
+
             return true;
         } 
     }
