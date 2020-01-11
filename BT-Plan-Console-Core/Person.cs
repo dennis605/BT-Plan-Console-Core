@@ -23,6 +23,9 @@ namespace ConsoleApp_core
         public virtual List<PersonenEvent> PersonenEvents { get; set; }
 
 
+        
+
+
         // Erstelle Mitarbeiter.
         public static void SaveMitarbeitertoDB (string vname, string nname)
         {
@@ -42,6 +45,7 @@ namespace ConsoleApp_core
         
         public static void CreateMA()
         {
+            string rolle = "Mitarbeiter";
             Console.WriteLine("Vorname:");
             string vname = Console.ReadLine();
             Console.WriteLine("Nachname:");
@@ -50,7 +54,7 @@ namespace ConsoleApp_core
             //Implementierung ob Mitarebiter schon existiert
             //TODO: Prüfung implementieren ob Mitarebiter schon existiert notwendig 
 
-            if (true)
+            if (CheckDBforDB(vname, nnachname, rolle))
             {
                 SaveMitarbeitertoDB(vname, nnachname);
             }
@@ -58,6 +62,11 @@ namespace ConsoleApp_core
 
 
         }
+        // hier wird zu speichernde Person geprüft, ob schon in DB existiert -> gibt true zurück, wenn speichern möglich ist
+        public static bool CheckDBforDB(string vname, string nnachname, string rolle)
+        {
+            return true;
+        } 
     }
     }
 
