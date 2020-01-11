@@ -35,8 +35,12 @@ namespace ConsoleApp_core
                 p1.Vorname = vname;
                 p1.Nachname = nname;
                 p1.Rolle = "Mitarbeiter";
-                db.Personen.Add(p1);
-                db.SaveChanges();
+                if (!db.Personen.Any(x => x.Nachname == p1.Nachname))
+                {
+                    db.Personen.Add(p1);
+                    db.SaveChanges();
+                }
+                
             }
         }
         /// <summary>
