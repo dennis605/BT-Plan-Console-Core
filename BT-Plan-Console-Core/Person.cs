@@ -26,8 +26,8 @@ namespace ConsoleApp_core
         
 
 
-        // Erstelle Mitarbeiter.
-        public static void SaveMitarbeitertoDB (string vname, string nname)
+        // Erstelle Person (Mitarebiter oder Bewohner.
+        public static void SavePersontoDBB(string vname, string nname, string rolle)
         {
             using (Context db = new Context())
             {
@@ -38,16 +38,49 @@ namespace ConsoleApp_core
                 if (!db.Personen.Any(x => x.Nachname == p1.Nachname))
                 {
                     db.Personen.Add(p1);
-                    db.SaveChanges();
+                  var result =   db.SaveChanges();
+                    Console.WriteLine("Check:Nachname: " +result);
                 }
-                
+                else if (!db.Personen.Any(x => x.Vorname == p1.Vorname))
+                {
+                    db.Personen.Add(p1);
+                  var result =  db.SaveChanges();
+                    Console.WriteLine("Check:Vname: " + result);
+
+                }
+                else if (!db.Personen.Any(x => x.Rolle == p1.Rolle))
+                {
+                    db.Personen.Add(p1);
+                  var result =   db.SaveChanges();
+                    Console.WriteLine("Check:Rolle: " + result);
+
+                }
+
             }
         }
         /// <summary>
         /// Fragt Input für neuen Mitarbeiter ab und erstellt diesen über SaveMitarbveitertoDB.
         /// </summary>
-        
-        public static void CreateMA()
+        public static void CreateBewohner()
+        {
+            string rolle = "Bewohner";
+            Console.WriteLine("Vorname:");
+            string vname = Console.ReadLine();
+            Console.WriteLine("Nachname:");
+            string nnachname = Console.ReadLine();
+
+            //Implementierung ob Mitarebiter schon existiert
+            //TODO: Prüfung implementieren ob Mitarebiter schon existiert notwendig 
+
+            if (CheckDBforDB(vname, nnachname, rolle))
+            {
+                Person.SavePersontoDBB(vname, nnachname, rolle);
+            }
+
+
+
+        }
+        public static void CreateMitarbeiter()
         {
             string rolle = "Mitarbeiter";
             Console.WriteLine("Vorname:");
@@ -60,7 +93,7 @@ namespace ConsoleApp_core
 
             if (CheckDBforDB(vname, nnachname, rolle))
             {
-                SaveMitarbeitertoDB(vname, nnachname);
+                Person.SavePersontoDBB(vname, nnachname, rolle);
             }
 
 
