@@ -38,52 +38,20 @@ namespace ConsoleApp_core
                 db.Personen.Add(pers);
                 var result = db.SaveChanges();
                 Console.WriteLine("Check:Nachname: " + result);
-
-                //if (!db.Personen.Any(x => x.Nachname == p1.Nachname))
-                //{
-                //    db.Personen.Add(p1);
-                //    var result = db.SaveChanges();
-                //    Console.WriteLine("Check:Nachname: " + result);
-                //}
-                //else if (!db.Personen.Any(x => x.Vorname == p1.Vorname))
-                //{
-                //    db.Personen.Add(p1);
-                //    var result = db.SaveChanges();
-                //    Console.WriteLine("Check:Vname: " + result);
-
-                //}
-                //else if (!db.Personen.Any(x => x.Rolle == p1.Rolle))
-                //{
-                //    db.Personen.Add(p1);
-                //    var result = db.SaveChanges();
-                //    Console.WriteLine("Check:Rolle: " + result);
-
-                //}
-                //// hier wenn Rolle, Nachname und Vorname in dieser Kombination bereits existiert
-                //else
-                //{
-                //    Console.WriteLine("Kombination aus Rolle, Nachname, und Vorname bereits vorhanden");
-                //}
-
-            }
+}
         }
         /// <summary>
         /// Erfragt Daten für einen neuen Bewohner und gibt Parameter an SavePersontoDB weiter
         /// </summary>
-        public static void CreateBewohner()
+        public static void CreateBewohner(string vname, string nname)
         {
             string rolle = "Bewohner";
-            Console.WriteLine("Vorname:");
-            string vname = Console.ReadLine();
-            Console.WriteLine("Nachname:");
-            string nnachname = Console.ReadLine();
-
+      
             //Implementierung ob Mitarbeiter schon existiert
-            //TODO: Prüfung implementieren ob Mitarebiter schon existiert notwendig 
 
-            if (CheckDBforDuplicate(vname, nnachname, rolle))
+            if (CheckDBforDuplicate(vname, nname, rolle))
             {
-                Person.SavePersontoDBB(vname, nnachname, rolle);
+                Person.SavePersontoDBB(vname, nname, rolle);
             }
 
 
@@ -92,20 +60,13 @@ namespace ConsoleApp_core
         /// <summary>
         ///         /// Erfragt Daten für einen neuen Mitarbeiter und gibt Parameter an SavePersontoDB weiter
         /// </summary>
-        public static void CreateMitarbeiter()
+        public static void CreateMitarbeiter(string vname, string nname)
         {
             string rolle = "Mitarbeiter";
-            Console.WriteLine("Vorname:");
-            string vname = Console.ReadLine();
-            Console.WriteLine("Nachname:");
-            string nnachname = Console.ReadLine();
 
-            //Implementierung ob Mitarebiter schon existiert
-            //TODO: Prüfung implementieren ob Mitarebiter schon existiert notwendig 
-
-            if (CheckDBforDuplicate(vname, nnachname, rolle))
+            if (CheckDBforDuplicate(vname, nname, rolle))
             {
-                Person.SavePersontoDBB(vname, nnachname, rolle);
+                Person.SavePersontoDBB(vname, nname, rolle);
             }
 
 
@@ -123,7 +84,7 @@ namespace ConsoleApp_core
                     {
                         if (db.Personen.Any(x => x.Rolle == rolle))
                         {
-                            Console.WriteLine("Person mit dieser Rolle existiert schon in DB");
+                            Console.WriteLine($"Person ({vname} {nnachname} mit Rolle {rolle} existiert schon in DB");
                             return false;
 
                         }
