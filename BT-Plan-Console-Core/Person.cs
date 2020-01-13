@@ -97,6 +97,21 @@ namespace ConsoleApp_core
 
         }
 
+        public void getMitarbeiter()
+        {
+            //TODO: alle Mitarbeiter ausgeben
+        }
+        public void getMitarbeiterzuPlan ()
+        {
+            //TODO: alle Mitarbeiter für Event X ausgeben
+        }
+
+        public void getEventsforMitarbeiter ()
+        {
+            //TODO: alle Events für Mitarbeiter X ausgeben
+
+        }
+
     }
 }
         

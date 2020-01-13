@@ -17,7 +17,7 @@ namespace BT_Plan_Console_Core
             switch (entsch)
             {
                 case ("Mitarbeiter"): // Möchte Mitarbeiter erstellen
-                    string rolle = "Mitarbeiter";
+                    //string rolle = "Mitarbeiter";
                     Console.WriteLine("Vorname:");
                     string vname = Console.ReadLine();
                     Console.WriteLine("Nachname:");
@@ -25,7 +25,7 @@ namespace BT_Plan_Console_Core
                     Person.CreateMitarbeiter(vname, nnachname);
                     break;
                 case ("Bewohner"): // Möchte Bewohner erstellen
-                    string rolle_b = "Bewohner";
+                    //string rolle_b = "Bewohner";
                     Console.WriteLine("Vorname:");
                     string vname_b = Console.ReadLine();
                     Console.WriteLine("Nachname:");
