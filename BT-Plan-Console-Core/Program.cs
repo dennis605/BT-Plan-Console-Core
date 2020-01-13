@@ -11,8 +11,9 @@ namespace BT_Plan_Console_Core
     {
         static void Main(string[] args)
         {
-            Person.CreateMitarbeiter();
-            Console.WriteLine("ergweehr6j");
+            //Person.CreateMitarbeiter();
+            Person.CreateBewohner();
+            //Console.WriteLine("ergweehr6j");
             Console.ReadKey();
 
             
