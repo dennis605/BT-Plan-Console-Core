@@ -34,44 +34,30 @@ namespace ConsoleApp_core
                 Person pers = new Person();
                 pers.Vorname = vname;
                 pers.Nachname = nname;
-                pers.Rolle = "Mitarbeiter";
+                pers.Rolle = rolle;
                 db.Personen.Add(pers);
                 var result = db.SaveChanges();
                 Console.WriteLine("Check:Nachname: " + result);
 }
         }
         /// <summary>
-        /// Erfragt Daten für einen neuen Bewohner und gibt Parameter an SavePersontoDB weiter
+        /// Erfragt Daten für einen neue Person und gibt Parameter an SavePersontoDB weiter
         /// </summary>
-        public static void CreateBewohner(string vname, string nname)
+        public static void CreatePerson(string vname, string nname, string rolle)
         {
-            string rolle = "Bewohner";
+            string _rolle = rolle;
       
             //Implementierung ob Mitarbeiter schon existiert
 
-            if (CheckDBforDuplicate(vname, nname, rolle))
+            if (CheckDBforDuplicate(vname, nname, _rolle))
             {
-                Person.SavePersontoDBB(vname, nname, rolle);
+                Person.SavePersontoDBB(vname, nname, _rolle);
             }
 
 
 
         }
-        /// <summary>
-        ///         /// Erfragt Daten für einen neuen Mitarbeiter und gibt Parameter an SavePersontoDB weiter
-        /// </summary>
-        public static void CreateMitarbeiter(string vname, string nname)
-        {
-            string rolle = "Mitarbeiter";
-
-            if (CheckDBforDuplicate(vname, nname, rolle))
-            {
-                Person.SavePersontoDBB(vname, nname, rolle);
-            }
-
-
-
-        }
+        
         // hier wird zu speichernde Person geprüft, ob schon in DB existiert -> gibt true zurück, wenn speichern möglich ist
         public static bool CheckDBforDuplicate(string vname, string nnachname, string rolle)
 
@@ -97,18 +83,18 @@ namespace ConsoleApp_core
 
         }
 
-        public void getMitarbeiter()
+        public void getPerson() // Mitarbeiter oder Bewohner
         {
-            //TODO: alle Mitarbeiter ausgeben
+            //TODO: alle Personen mit Rolle ausgeben
         }
-        public void getMitarbeiterzuPlan ()
+        public void getPersonsZuEvent () // alle Mitarbeiter und/ oder Bewohner zu Event
         {
-            //TODO: alle Mitarbeiter für Event X ausgeben
+            //TODO: alle Personen mit Rolle für Event X ausgeben
         }
 
-        public void getEventsforMitarbeiter ()
+        public void getEventsForPerson () // alle Events zu Mitarbeiter oder Bewohner
         {
-            //TODO: alle Events für Mitarbeiter X ausgeben
+            //TODO: alle Events für Personen X mit rolle ausgeben
 
         }
 
