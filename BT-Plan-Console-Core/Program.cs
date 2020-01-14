@@ -11,7 +11,7 @@ namespace BT_Plan_Console_Core
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Was möchtest Du der Datenbank hinzufügen? (Mitarbeiter,Bewohner)");
+            Console.WriteLine("Was möchtest Du der Datenbank hinzufügen? (Mitarbeiter,Bewohner) oder (Ausgabe)");
             string entsch = Console.ReadLine();
 
             switch (entsch)
@@ -33,11 +33,23 @@ namespace BT_Plan_Console_Core
                     Person.CreatePerson(vname_b, nnachname_b, rolle_b);
                     break;
 
-                default:
-                    Console.WriteLine("Ungültige Auswahl"); // ungültige Auswahl getroffen
+                case ("Ausgabe"): // Möchte Bewohner erstellen                   
                     Person.getPerson("Mitarbeiter");
                     Console.WriteLine("\n");
-                    Person.getPerson("Bewohner");    
+                    Person.getPerson("Bewohner");
+                    // Ausgabe aus getPersonsAsDictionary
+                    var test = Person.getPersonsAsDictionary("Mitarbeiter");
+                    foreach (var pers in test)
+                    {
+                        Console.WriteLine($"Vorname:{ pers.Vorname } Nachname:{ pers.Nachname} Rolle:{pers.Rolle}");
+                    }
+
+                    break;
+
+                default:
+                    Console.WriteLine("Ungültige Auswahl"); // ungültige Auswahl getroffen gibt 
+
+
                     break;
                     
             }

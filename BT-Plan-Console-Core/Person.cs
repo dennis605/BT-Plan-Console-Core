@@ -125,13 +125,27 @@
             {
                 //var req = from pers in db.Personen where rolle == _rolle select pers;
                 var req = db.Personen.Where(r => r.Rolle == _rolle);
-                //return req;
+                // return req as ICollection<Person>;
 
 
                 foreach (var pers in req)
                 {
-                    Console.WriteLine($"Vorname:{ pers.Vorname } Nachname:{ pers.Nachname} Rolle:{pers.Rolle}" );
+                    Console.WriteLine($"Vorname:{ pers.Vorname } Nachname:{ pers.Nachname} Rolle:{pers.Rolle}");
                 }
+            }
+
+
+        }
+
+        public static IList<Person> getPersonsAsDictionary(string rolle) // Mitarbeiter oder Bewohner
+        {
+            //TODO:public void getPerson() // Mitarbeiter oder Bewohner
+            string _rolle = rolle;
+
+            using (Context db = new Context())
+            {
+                var req = db.Personen.Where(r => r.Rolle == _rolle).ToList();
+                return req as IList<Person>;               
             }
 
 
