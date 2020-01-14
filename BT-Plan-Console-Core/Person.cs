@@ -168,5 +168,10 @@
             //TODO:public void getEventsForPerson() // alle Events zu Mitarbeiter oder Bewohner
 
         }
+        // TODO: Implwmtieren von Löschung einer Person 
+        public static int loeschePerson(string vname, string nname, string rolle)
+        {
+            return 0;
+        }
     }
 }
