@@ -35,6 +35,9 @@ namespace BT_Plan_Console_Core
 
                 default:
                     Console.WriteLine("Ungültige Auswahl"); // ungültige Auswahl getroffen
+                    Person.getPerson("Mitarbeiter");
+                    Console.WriteLine("\n");
+                    Person.getPerson("Bewohner");    
                     break;
                     
             }
