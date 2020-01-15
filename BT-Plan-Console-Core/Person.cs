@@ -171,6 +171,17 @@
         // TODO: Implwmtieren von Löschung einer Person 
         public static int loeschePerson(string vname, string nname, string rolle)
         {
+            using (Context db = new Context())
+            {
+             
+                var req = db.Personen.Where(r => r.Vorname == vname && r.Nachname == nname && r.Rolle == rolle).ToList();
+                Console.WriteLine($"Es werden {req.Count} Einträge gelöscht. Zum Forfahren Eingabetaste verwenden. Zum Abbruch STRG+C");
+                Console.ReadLine();
+                db.Personen.RemoveRange(req);
+                int result = db.SaveChanges();
+                Console.WriteLine($"Es wurden {result} Einträge aus der Datenbank gelöscht");
+
+                            }
             return 0;
         }
     }

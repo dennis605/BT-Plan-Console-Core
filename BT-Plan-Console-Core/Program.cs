@@ -11,12 +11,12 @@ namespace BT_Plan_Console_Core
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Was möchtest Du der Datenbank hinzufügen? (Mitarbeiter,Bewohner) oder (Ausgabe) oder (Event)");
-            string entsch = Console.ReadLine();
+            Console.WriteLine("Was möchtest Du der Datenbank hinzufügen? (Mitarbeiter,Bewohner) oder (Ausgabe) oder (Event) oder (Löschen)");
+            string entsch = Console.ReadLine().ToLower();
 
             switch (entsch)
             {
-                case ("Mitarbeiter"): // Möchte Mitarbeiter erstellen
+                case ("mitarbeiter"): // Möchte Mitarbeiter erstellen
                     string rolle = "Mitarbeiter";
                     Console.WriteLine("Vorname:");
                     string vname = Console.ReadLine();
@@ -24,7 +24,7 @@ namespace BT_Plan_Console_Core
                     string nnachname = Console.ReadLine();
                     Person.CreatePerson (vname, nnachname, rolle);
                     break;
-                case ("Bewohner"): // Möchte Bewohner erstellen
+                case ("bewohner"): // Möchte Bewohner erstellen
                     string rolle_b = "Bewohner";
                     Console.WriteLine("Vorname:");
                     string vname_b = Console.ReadLine();
@@ -33,7 +33,7 @@ namespace BT_Plan_Console_Core
                     Person.CreatePerson(vname_b, nnachname_b, rolle_b);
                     break;
 
-                case ("Ausgabe"): // Möchte Bewohner erstellen                   
+                case ("ausgabe"): // Möchte Bewohner erstellen                   
                     Person.getPerson("Mitarbeiter");
                     Console.WriteLine("\n");
                     Person.getPerson("Bewohner");
@@ -46,7 +46,8 @@ namespace BT_Plan_Console_Core
 
                     break;
 
-                case ("Event"): // Möchte Bewohner erstellen                   
+                case ("event"): // Möchte Bewohner erstellen    
+                    //Person.loeschePerson("Lisa", "Henken", "Mitarbeiter");
                     //Person.getPerson("Mitarbeiter");
                     //Console.WriteLine("\n");
                     //Person.getPerson("Bewohner");
@@ -57,6 +58,17 @@ namespace BT_Plan_Console_Core
                     //    Console.WriteLine($"Vorname:{ pers.Vorname } Nachname:{ pers.Nachname} Rolle:{pers.Rolle}");
                     //}
 
+                    break;
+                case ("löschen"): // Möchte Bewohner erstellen 
+                    Console.WriteLine("Bitte zu löschenden Vornamen eingeben");
+                    string delvname = Console.ReadLine();
+                    Console.WriteLine("Bitte zu löschenden Nachnamen eingeben");
+                    string delnname = Console.ReadLine();
+                    Console.WriteLine("Bitte zu löschenden Rolle eingeben");
+                    string delrolle = Console.ReadLine();
+
+                    Person.loeschePerson(delvname, delnname, delrolle);
+                    
                     break;
 
                 default:
