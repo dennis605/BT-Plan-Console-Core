@@ -67,7 +67,7 @@ namespace BT_Plan_Console_Core
                     Console.WriteLine("Bitte zu löschenden Rolle eingeben");
                     string delrolle = Console.ReadLine();
 
-                    Person.loeschePerson(delvname, delnname, delrolle);
+                   int result = Person.loeschePerson(delvname, delnname, delrolle);
                     
                     break;
 

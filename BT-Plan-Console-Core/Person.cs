@@ -118,7 +118,7 @@
         /// </summary>
         public static void getPerson(string rolle) // Mitarbeiter oder Bewohner
         {
-            //TODO:public void getPerson() // Mitarbeiter oder Bewohner
+            //TODO:public void getPerson() // Mitarbeiter oder Bewohner -> getPerson(string rolle)
             string _rolle = rolle;
 
             using (Context db = new Context())
@@ -139,7 +139,7 @@
 
         public static IList<Person> getPersonsAsDictionary(string rolle) // Mitarbeiter oder Bewohner
         {
-            //TODO:public void getPerson() // Mitarbeiter oder Bewohner
+            //TODO:public void getPerson() // Mitarbeiter oder Bewohner -> getPersonsAsDictionary
             string _rolle = rolle;
 
             using (Context db = new Context())
@@ -168,7 +168,7 @@
             //TODO:public void getEventsForPerson() // alle Events zu Mitarbeiter oder Bewohner
 
         }
-        // TODO: Implwmtieren von Löschung einer Person 
+        // TODO: Datenbank muss bereinigt werden nach loeschePerson()
         public static int loeschePerson(string vname, string nname, string rolle)
         {
             using (Context db = new Context())
