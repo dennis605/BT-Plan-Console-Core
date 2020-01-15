@@ -180,9 +180,8 @@
                 db.Personen.RemoveRange(req);
                 int result = db.SaveChanges();
                 Console.WriteLine($"Es wurden {result} Einträge aus der Datenbank gelöscht");
-
-                            }
-            return 0;
+                return result;
+            }
         }
     }
 }
